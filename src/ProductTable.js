@@ -3,6 +3,7 @@ import ProductRow from './ProductRow'
 
 const ProductTable = ({ products, filterText, deleteProduct }) => {
   let rowsToRender = []
+
   Object.values(products).forEach(({ id, category, price, name }) => {
     if (filterText) {
       if (name.indexOf(filterText) >= 0) {
@@ -13,7 +14,6 @@ const ProductTable = ({ products, filterText, deleteProduct }) => {
       rowsToRender.push(<ProductRow id={id} category={category} price={price} name={name} key={id}
                                     deleteProduct={(productId) => deleteProduct(productId)} />)
     }
-
   })
 
   return (
