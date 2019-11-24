@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 const ProductForm = ({ addNewProduct }) => {
   const [name, setName] = useState('')
@@ -15,10 +16,19 @@ const ProductForm = ({ addNewProduct }) => {
   return (
     <>
       <h2>Add a new product</h2>
-      <form>
-        <input placeholder='name' value={name} onChange={(e) => setName(e.target.value)} /><br />
-        <input placeholder='category' value={category} onChange={(e) => setCategory(e.target.value)} /><br />
-        <input placeholder='price' value={price} onChange={(e) => setPrice(e.target.value)} /><br />
+      <Form>
+        <Form.Group controlId="formName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
+        </Form.Group>
+        <Form.Group controlId="formCategory">
+          <Form.Label>Category</Form.Label>
+          <Form.Control placeholder='category' value={category} onChange={(e) => setCategory(e.target.value)} />
+        </Form.Group>
+        <Form.Group controlId="formPrice">
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="currency" placeholder='price' value={price} onChange={(e) => setPrice(e.target.value)} />
+        </Form.Group>
         <Button onClick={(e) => {
           e.preventDefault()
           addNewProduct({ name, category, price })
@@ -26,7 +36,7 @@ const ProductForm = ({ addNewProduct }) => {
         }}>
           Submit
         </Button>
-      </form>
+      </Form>
     </>
   )
 }
