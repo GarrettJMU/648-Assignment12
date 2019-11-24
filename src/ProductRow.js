@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
 
 const ProductRow = ({ id, name, category, price, deleteProduct }) => {
   return (
@@ -7,7 +8,7 @@ const ProductRow = ({ id, name, category, price, deleteProduct }) => {
       <td>{category}</td>
       <td>{price}</td>
       <td>
-        <button onClick={() => deleteProduct(id)}>Delete</button>
+        <Button onClick={() => deleteProduct(id)} variant="danger">Delete</Button>
       </td>
     </tr>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductRow from './ProductRow'
+import Table from 'react-bootstrap/Table'
 
 const ProductTable = ({ products, filterText, deleteProduct }) => {
   let rowsToRender = []
@@ -17,7 +18,7 @@ const ProductTable = ({ products, filterText, deleteProduct }) => {
   })
 
   return (
-    <table>
+    <Table striped bordered hover style={{marginTop: 30}}>
       <thead>
       <tr>
         <th scope="col">Name</th>
@@ -29,7 +30,7 @@ const ProductTable = ({ products, filterText, deleteProduct }) => {
       <tbody>
       {rowsToRender.map((row) => (row))}
       </tbody>
-    </table>
+    </Table>
   )
 }
 
